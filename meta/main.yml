@@ -1,0 +1,24 @@
+galaxy_info:
+  author: treehouse
+  description: This role will install the Sysward Agent on your system.
+  company: TreeHouse B.V. Rotterdam - https://www.treehouse.nl/
+  license: MIT
+  min_ansible_version: 2.4
+
+  # The role has been tested and verified on the following platforms.
+  # It might work on other platforms as well, but this is not tested nor verified.
+  platforms:
+  - name: Ubuntu
+    versions:
+    - 16.04
+
+  galaxy_tags:
+    - sysward
+    - patch-management
+    - sysadmin
+    - patching
+    - security
+    - cve
+    - ubuntu
+
+dependencies: []

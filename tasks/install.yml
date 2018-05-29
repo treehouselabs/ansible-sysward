@@ -1,0 +1,46 @@
+---
+- name: Make sure Sysward agent is not currently running
+  command: killall -q -w sysward
+  ignore_errors: yes
+
+- name: Ensure Sysward installation directory exists
+  file:
+    path: /opt/sysward/bin
+    state: directory
+    mode: 0755
+
+- name: Download Sysward agent
+  get_url:
+    url: http://updates.sysward.com/sysward
+    dest: /opt/sysward/bin/sysward
+    force: yes
+    mode: 0755
+
+- name: Download Sysward trex script
+  get_url:
+    url: http://updates.sysward.com/trex.py
+    dest: /opt/sysward/bin/trex.py
+    force: yes
+    mode: 0644
+
+- name: Download Sysward update script
+  get_url:
+    url: http://updates.sysward.com/list_updates.py
+    dest: /opt/sysward/bin/list_updates.py
+    force: yes
+    mode: 0644
+
+- name: Download Sysward configuration file
+  get_url:
+    url: http://updates.sysward.com/config.deploy.json
+    dest: /opt/sysward/bin/config.json
+    mode: 0644
+
+- name: Configure Sysward API key
+  replace:
+    path: /opt/sysward/bin/config.json
+    regexp: 'APIKEY'
+    replace: '{{ sysward_api_key }}'
+
+- name: Run Sysward agent once
+  command: /opt/sysward/bin/sysward
