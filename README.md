@@ -29,7 +29,7 @@ This role currently has no dependencies.
 Example Playbook
 ----------------
 
-After you installed the role using the command `ansible-galaxy install treehouse.sysward`,
+After you installed the role using the command `ansible-galaxy install treehouselabs.sysward`,
 you can start using it in your playbook(s).
 
 We recommend that you store your SysWard API key in an Ansible Vault file for security reasons.
@@ -44,7 +44,7 @@ If you've done so, your playbook could look something like this.
           include_vars: secrets.yml 
 
       roles:
-        - { role: treehouse.sysward }
+        - { role: treehouselabs.sysward }
 
 If you do not want to use an Ansible Vault file, you can also set the `sysward_api_key` variable
 directly in your role definition, as shown below.
@@ -54,7 +54,7 @@ directly in your role definition, as shown below.
       become_user: root
 
       roles:
-         - { role: treehouse.sysward, sysward_api_key: APIKEY }
+         - { role: treehouselabs.sysward, sysward_api_key: APIKEY }
 
 License
 -------
