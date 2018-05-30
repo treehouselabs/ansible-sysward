@@ -44,3 +44,4 @@
 
 - name: Run Sysward agent once
   command: /opt/sysward/bin/sysward
+  ignore_errors: yes
